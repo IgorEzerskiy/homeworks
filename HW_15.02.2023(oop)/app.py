@@ -1,22 +1,24 @@
 """
 Enter point module
 """
+import datetime
+import traceback
+
 from employee_class import Employee
 from dev_class import Developer
 from recruiter_class import Recruiter
 
 
-if __name__ == '__main__':
-    employee = Employee(name='Igor', salary=550.0)
+def main():
+    employee = Employee(name='Igor', salary=550.0, email='54354jf@gmail.com')
     print(employee.work(), '\n')
-
-    dev = Developer(name='Andriy', salary=1100.0, tech_stack=['JS', 'C++', 'Python'])
-    dev2 = Developer(name='Maxim', salary=1200.0, tech_stack=['JS', 'C++', 'Python', 'React'])
+    dev = Developer(name='Andriy', salary=1100.0, email='adw@fef.com', tech_stack=['JS', 'C++', 'Python'])
+    dev2 = Developer(name='Maxim', salary=1200.0, email='adwddg@gmail.com', tech_stack=['JS', 'C++', 'Python', 'React'])
     print(str(dev))
     print(dev.work(), '\n')
 
-    recruiter = Recruiter(name='Irina', salary=500.0)
-    recruiter1 = Recruiter(name='Sasha', salary=600.0)
+    recruiter = Recruiter(name='Irina', salary=500.0, email='afee3@fsefe.cde')
+    recruiter1 = Recruiter(name='Sasha', salary=600.0, email='awdawd@gaied.com')
     print(str(recruiter))
     print(recruiter.work(), '\n')
 
@@ -45,3 +47,12 @@ if __name__ == '__main__':
 
     dev3 = dev + dev2
     print(dev3.name, dev3.salary, dev3.tech_stack)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception:
+        a = traceback.format_exc()
+        with open('exceptions_logs.txt', 'w') as log:
+            log.write(f'{datetime.datetime.now()}|{a}')

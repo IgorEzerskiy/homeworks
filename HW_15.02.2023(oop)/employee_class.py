@@ -2,15 +2,19 @@
 Module contains main class Employee
 """
 import datetime
+import exceptions
 
 
 class Employee:
     """
     Class Employee
     """
-    def __init__(self, name: str, salary: float):  # salary for 1 work day
+    def __init__(self, name: str, salary: float, email: str):  # salary for 1 work day
         self.name = name
         self.salary = salary
+        self.email = email
+        self.validate()
+        self.save_email()
 
     def __str__(self):
         return f'{self.__class__.__name__}: {self.name}'
@@ -32,6 +36,23 @@ class Employee:
 
     def __ne__(self, other):
         return self.salary != other.salary
+
+    def save_email(self):
+        """
+        This method save email to file
+        :return:
+        """
+        with open('emails.txt', 'a') as emails_file:
+            emails_file.write(self.email+'\n')
+
+    def validate(self):
+        """
+        This method catch clone of email
+        :return:
+        """
+        with open('emails.txt') as emails_file:
+            if self.email+'\n' in emails_file.readlines():
+                raise exceptions.EmailAlreadyExistException
 
     def work(self):
         """

@@ -8,8 +8,8 @@ class Developer(Employee):
     """
     Class Developer
     """
-    def __init__(self, name: str, salary: float, tech_stack: list):
-        super().__init__(name, salary)
+    def __init__(self, name: str, salary: float, email: str, tech_stack: list):
+        super().__init__(name, salary, email)
         self.tech_stack = tech_stack
 
     def __add__(self, other):
@@ -19,7 +19,7 @@ class Developer(Employee):
             salary = self.salary
         else:
             salary = other.salary
-        return Developer(name=name, salary=salary, tech_stack=list(tech_steck))
+        return Developer(name=name, salary=salary, email='', tech_stack=list(tech_steck))
 
     def __gt__(self, other):
         return len(self.tech_stack) > len(other.tech_stack)
