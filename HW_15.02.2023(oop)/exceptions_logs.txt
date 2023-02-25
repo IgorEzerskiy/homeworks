@@ -1,0 +1,10 @@
+2023-02-25 11:06:10.561541|Traceback (most recent call last):
+  File "/home/igor/homeworks/homeworks/HW_15.02.2023(oop)/app.py", line 54, in <module>
+    main()
+  File "/home/igor/homeworks/homeworks/HW_15.02.2023(oop)/app.py", line 13, in main
+    employee = Employee(name='Igor', salary=550.0, email='54354jf@gmail.com')
+  File "/home/igor/homeworks/homeworks/HW_15.02.2023(oop)/employee_class.py", line 16, in __init__
+    self.validate()
+  File "/home/igor/homeworks/homeworks/HW_15.02.2023(oop)/employee_class.py", line 55, in validate
+    raise exceptions.EmailAlreadyExistException
+exceptions.EmailAlreadyExistException

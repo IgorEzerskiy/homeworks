@@ -54,5 +54,5 @@ if __name__ == '__main__':
         main()
     except Exception:
         a = traceback.format_exc()
-        with open('exceptions_logs.txt', 'w') as log:
+        with open('exceptions_logs.txt', 'a') as log:
             log.write(f'{datetime.datetime.now()}|{a}')
