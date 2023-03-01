@@ -64,3 +64,4 @@ if __name__ == '__main__':
 
     print([x.full_name for x in candidates])
     pprint([x.full_info for x in candidates])
+    print('')
